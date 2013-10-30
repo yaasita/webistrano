@@ -1,7 +1,8 @@
 #!/bin/bash
 #########################################
-HOME=/home/hoge
-CURRENT=/home/hoge/webistrano
+HOME=/home/hogeuser
+CURRENT=/home/hogeuser/production
+PORT=8081
 #########################################
 
 #rvm 
@@ -19,7 +20,7 @@ eval "$(rbenv init -)"
 case "$1" in
 	start)
 		cd $CURRENT
-		bundle exec unicorn_rails -E production -D
+		bundle exec unicorn_rails -E production -D -p $PORT
 	;;
 	stop)
 		cd $CURRENT

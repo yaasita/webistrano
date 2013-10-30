@@ -1,14 +1,12 @@
 * install
- rbenv install
- gem install bundler -v 1.0.10
+ ./rbenv_install.sh
  bundle install
- db:migrate
  vi config/webistrano_config.rb
- bundle exec unicorn_rails -E production
+ vi config/database.yml
+ db:migrate
 
 * run script
  vi webistrano.sh
-
 
 * logrotate
 (/etc/logrotate.d/unicorn)
