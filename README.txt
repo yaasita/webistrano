@@ -1,46 +1,43 @@
-Webistrano - Capistrano deployment the easy way
+* install
+ rbenv install
+ gem install bundler -v 1.0.10
+ bundle install
+ db:migrate
+ vi config/webistrano_config.rb
+ bundle exec unicorn_rails -E production
+
+* run script
+ vi webistrano.sh
 
 
+* logrotate
+(/etc/logrotate.d/unicorn)
 
-About:
-  Webistrano is a Web UI for managing Capistrano deployments.
-  It lets you manage projects and their stages like test, production, 
-  and staging with different settings. Those stages can then
-  be deployed with Capistrano through Webistrano.
+/home/webistrano/webistrano/log/*.log {
+    daily
+    missingok
+    rotate 14
+    compress
+    delaycompress
+    notifempty
+    create 0644 xxxxxxxxxx xxxxxxxxxx
+    sharedscripts
+    postrotate
+        [ ! -f /home/xxxxxxxxxxxxxxx/webistrano/tmp/pids/unicorn.pid ] || kill -HUP `cat /home/xxxxxxxxxxxxxxxxx/webistrano/tmp/pids/unicorn.pid`
+    endscript
+}
 
 
-Installation:
-
-  1. Configuration
-  
-    Copy config/webistrano_config.rb.sample to config/webistrano_config.rb
-    and edit appropriatly. In this configuration file you can set the mail
-    settings of Webistrano.
-  
-  2. Database
-  
-    Copy config/database.yml.sample to config/database.yml and edit to
-    resemble your setting. You need at least the production database.
-    The others are optional entries for development and testing.
-  
-    Then create the database structure with Rake:
-  
-    > cd webistrano
-    > RAILS_ENV=production rake db:migrate
-  
-  3. Start Webistrano  
-  
-    > cd webistrano
-    > ruby script/server -d -p 3000 -e production
-  
-    Webistrano is then available at http://host:3000/
-  
-    The default user is `admin`, the password is `admin`. Please change the password
-    after the first login.
-  
-Author:
-  Jonathan Weiss <jw@innerewut.de>
-  
-License: 
-  Code: BSD, see LICENSE.txt
-  Images: Right to use in their provided form in Webistrano installations. No other right granted.
+* apache
+<VirtualHost *:443>
+    ServerName hoge.example.com
+    ProxyRequests Off
+    <Proxy *>
+    </Proxy>
+    ProxyPass / http://127.0.0.1:8080/
+    ProxyPassReverse / http://127.0.0.1:8080/
+    SSLEngine on
+    SSLCertificateFile /etc/apache2/ssl/2013/server.crt
+    SSLCertificateKeyFile /etc/apache2/ssl/2013/server.key
+    SSLCACertificateFile /etc/apache2/ssl/2013/cacert.crt
+</VirtualHost>
