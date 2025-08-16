@@ -1,0 +1,31 @@
+ja:
+  layouts:
+    application:
+      title: "Peritor Webistrano - %{page_title}"
+      description: "Peritor Webistrano - Capistranoデプロイを簡単に"
+      keywords: "rubyonrails ruby rails capistrano deployment"
+      claim: "Capistranoデプロイを簡単に"
+      logged_in_as: "でログイン中"
+      logout: "ログアウト"
+      copyright: "Copyright &copy; 2007, 2008, 2009 | Version %{version} | <a href='http://labs.peritor.com/webistrano' target='_blank'>http://labs.peritor.com/webistrano</a>"
+  sessions:
+    new:
+      title: "ログイン"
+      welcome: "Webistranoへようこそ"
+      login: "ログイン"
+      password: "パスワード"
+      remember_me: "ログイン情報を記憶する"
+      log_in: "ログイン"
+      legend: "Webistranoログイン"
+  projects:
+    dashboard:
+      title: "Webistranoへようこそ"
+      introduction_legend: "はじめにとヘルプ"
+      introduction_text: "Webistranoへようこそ。最初のステップは、ステージを持つプロジェクトを作成することです。このステージは、Webistranoに少なくとも1つのホストを知らせた後でデプロイできます。"
+      help_text: "ヘルプと詳細なドキュメントについては、以下を参照してください。"
+      wiki: "Wiki"
+      configuration_parameter: "設定パラメータ"
+      faq: "FAQ"
+      support_text: "Webistranoはオープンソースです。有料サポートは%{peritor_consulting_link}によって利用可能です。"
+      recent_deployments_legend: "最近のデプロイ"
+      no_recent_deployments: "最近のデプロイはありません。"
