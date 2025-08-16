@@ -1,0 +1,31 @@
+en:
+  layouts:
+    application:
+      title: "Peritor Webistrano - %{page_title}"
+      description: "Peritor Webistrano - Capistrano Deployment the easy way"
+      keywords: "rubyonrails ruby rails capistrano deployment"
+      claim: "Capistrano deployment the easy way"
+      logged_in_as: "Logged in as"
+      logout: "Logout"
+      copyright: "Copyright &copy; 2007, 2008, 2009 | Version %{version} | <a href='http://labs.peritor.com/webistrano' target='_blank'>http://labs.peritor.com/webistrano</a>"
+  sessions:
+    new:
+      title: "Login"
+      welcome: "Welcome to Webistrano"
+      login: "Login"
+      password: "Password"
+      remember_me: "Remember me"
+      log_in: "Log in"
+      legend: "Webistrano login"
+  projects:
+    dashboard:
+      title: "Welcome to Webistrano"
+      introduction_legend: "Introduction and help"
+      introduction_text: "Welcome to Webistrano. Your first steps should be to create a project with a stage. This stage can then be deployed once you made at least one host known to Webistrano."
+      help_text: "For help and more documentation, see"
+      wiki: "Wiki"
+      configuration_parameter: "Configuration Parameter"
+      faq: "FAQ"
+      support_text: "Webistrano is Open Source. Paid support is available by %{peritor_consulting_link}."
+      recent_deployments_legend: "Recent deployments"
+      no_recent_deployments: "No recent deployments."
